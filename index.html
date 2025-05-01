@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeMaster - Curso de Programación Básico</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <i class="fa-solid fa-code"></i>
+        <span>CodeMaster</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#contenido">Contenido</a></li>
+          <li><a href="#instructor">Instructor</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+        </ul>
+      </nav>
+      <a href="formulario.html" class="btn btn-primary">Inscríbete Ahora</a>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <span class="badge">¡Nuevo Curso!</span>
+            <h1>Curso de Programación Básico</h1>
+            <p>Aprende los fundamentos de la programación desde cero y comienza tu camino en el mundo del desarrollo de software.</p>
+            <div class="buttons">
+              <a href="formulario.html" class="btn btn-primary">Comenzar Ahora <i class="fa-solid fa-chevron-right"></i></a>
+              <a href="#contenido" class="btn btn-outline">Ver Programa</a>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <i class="fa-regular fa-clock"></i>
+                <span>Próximamente</span>
+              </div>
+              <div class="stat">
+                <i class="fa-regular fa-circle-check"></i>
+                <span>Inscripción anticipada</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="scr/portada.png" alt="Curso de Programación">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="caracteristicas" class="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Características</span>
+          <h2>¿Por qué elegir nuestro curso?</h2>
+          <p>Diseñado para principiantes, nuestro curso te ofrece todo lo que necesitas para comenzar tu carrera en programación.</p>
+        </div>
+        <div class="feature-cards">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3>Aprendizaje Práctico</h3>
+            <p class="card-subtitle">Aprende haciendo con ejercicios prácticos y proyectos reales.</p>
+            <p>Cada lección incluye ejercicios prácticos que te ayudarán a consolidar los conceptos aprendidos y a desarrollar tus habilidades de programación.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-file-code"></i>
+            </div>
+            <h3>Contenido Actualizado</h3>
+            <p class="card-subtitle">Temario diseñado con las últimas tendencias en programación.</p>
+            <p>El curso está siendo desarrollado con las tecnologías y metodologías más recientes para asegurar que aprendas habilidades relevantes en el mercado actual.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-user-group"></i>
+            </div>
+            <h3>Atención Personalizada</h3>
+            <p class="card-subtitle">Seguimiento individual de tu progreso.</p>
+            <p>Al ser un curso nuevo, podrás recibir atención más personalizada y participar activamente en la evolución del contenido según tus necesidades de aprendizaje.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="contenido" class="content">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Contenido</span>
+          <h2>¿Qué aprenderás?</h2>
+          <p>Un programa completo diseñado para llevarte desde los conceptos básicos hasta la creación de tus primeras aplicaciones.</p>
+        </div>
+        <div class="tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="modulo1">Módulo 1</button>
+            <button class="tab-btn" data-tab="modulo2">Módulo 2</button>
+            <button class="tab-btn" data-tab="modulo3">Módulo 3</button>
+            <button class="tab-btn" data-tab="modulo4">Módulo 4</button>
+          </div>
+          <div class="tab-content active" id="modulo1">
+            <h3>Introducción a la Programación</h3>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> ¿Qué es la programación?</li>
+              <li><i class="fa-solid fa-circle-check"></i> Lógica de programación</li>
+              <li><i class="fa-solid fa-circle-check"></i> Algoritmos y diagramas de flujo</li>
+              <li><i class="fa-solid fa-circle-check"></i> Pseudocódigo</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="modulo2">
+            <h3>Fundamentos de JavaScript</h3>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> Variables y tipos de datos</li>
+              <li><i class="fa-solid fa-circle-check"></i> Operadores y expresiones</li>
+              <li><i class="fa-solid fa-circle-check"></i> Estructuras de control</li>
+              <li><i class="fa-solid fa-circle-check"></i> Funciones</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="modulo3">
+            <h3>Estructuras de Datos</h3>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> Arrays</li>
+              <li><i class="fa-solid fa-circle-check"></i> Objetos</li>
+              <li><i class="fa-solid fa-circle-check"></i> Manipulación de datos</li>
+              <li><i class="fa-solid fa-circle-check"></i> Métodos de arrays y objetos</li>
+            </ul>
+          </div>
+          <div class="tab-content" id="modulo4">
+            <h3>Proyectos Prácticos</h3>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> Calculadora</li>
+              <li><i class="fa-solid fa-circle-check"></i> Lista de tareas</li>
+              <li><i class="fa-solid fa-circle-check"></i> Juego simple</li>
+              <li><i class="fa-solid fa-circle-check"></i> Proyecto final integrador</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section id="instructor" class="instructor">
+      <div class="container">
+        <div class="instructor-content">
+          <div class="instructor-image">
+            <img src="scr/1736028540334.jpg" alt="Instructor">
+          </div>
+          <div class="instructor-info">
+            <span class="badge">Instructor</span>
+            <h2>Erick Torrealba (Estud. Ing. Informática - UCLA)</h2>
+            <p class="subtitle">Programador Junior</p>
+            <p>Soy estudiante de Ingeniería Informática en UCLA y la programación es mi gran pasión. Me motiva demostrar que para conseguir resultados notables no hace falta ser un experto ni esperar al último semestre; con entusiasmo y disciplina, puedes comenzar a crear proyectos increíbles desde ya.</p>
+            <!--Section Redes
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Preguntas Frecuentes</span>
+          <h2>¿Tienes dudas?</h2>
+          <p>Aquí encontrarás respuestas a las preguntas más comunes sobre nuestro nuevo curso.</p>
+        </div>
+        <div class="faq-items">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>¿Cuándo comienza el curso?</h3>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>El curso comenzará próximamente. Estamos en fase de inscripción anticipada. Al registrarte ahora, recibirás acceso prioritario.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>¿Necesito conocimientos previos?</h3>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>No, este curso está diseñado para principiantes absolutos. No se requiere experiencia previa en programación.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>¿Qué necesito para comenzar?</h3>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Solo necesitas una computadora con conexión a internet y ganas de aprender. Todas las herramientas que utilizaremos serán gratuitas y accesibles para todos los sistemas operativos.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>¿Cómo será la metodología?</h3>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>El curso se enfocará en el aprendizaje práctico, con explicaciones claras y concisas seguidas de ejercicios que te permitirán aplicar lo aprendido inmediatamente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>¡Comienza tu camino en la programación hoy!</h2>
+        <p>Inscríbete ahora y sé de los primeros en acceder cuando el curso esté disponible.</p>
+        <div class="cta-buttons">
+          <a href="formulario.html" class="btn btn-light">Inscríbete Ahora <i class="fa-solid fa-chevron-right"></i></a>
+          <button class="btn btn-outline-light">Solicitar Información</button>
+        </div>
+        <p class="small">¡Inscripción anticipada! Sé de los primeros en formar parte de esta experiencia de aprendizaje.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="logo">
+            <i class="fa-solid fa-code"></i>
+            <span>CodeMaster</span>
+          </div>
+          <p>Comienza tu camino en el mundo de la programación con nosotros.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contacto</h3>
+          <ul class="contact-info">
+            <li>info@codemaster.com</li>
+            <li>+58 4125088708</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2023 CodeMaster. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
