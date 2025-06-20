@@ -1,67 +1,93 @@
+// frontend.js
 document.addEventListener("DOMContentLoaded", () => {
-  // Tab functionality
+  // ——— Tabs
   const tabButtons = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
-
   tabButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // Remove active class from all buttons and contents
       tabButtons.forEach((btn) => btn.classList.remove("active"));
-      tabContents.forEach((content) =>
-        content.classList.remove("active")
-      );
-
-      // Add active class to clicked button
+      tabContents.forEach((c) => c.classList.remove("active"));
       button.classList.add("active");
-
-      // Show corresponding content
-      const tabId = button.getAttribute("data-tab");
-      document.getElementById(tabId).classList.add("active");
+      document.getElementById(button.dataset.tab).classList.add("active");
     });
   });
 
-  // FAQ accordion functionality
-  const faqItems = document.querySelectorAll(".faq-question");
-
-  faqItems.forEach((item) => {
+  // ——— FAQ accordion
+  document.querySelectorAll(".faq-question").forEach((item) => {
     item.addEventListener("click", () => {
-      const answer = item.nextElementSibling;
+      const ans = item.nextElementSibling;
       const icon = item.querySelector("i");
-
-      // Toggle display of answer
-      if (answer.style.display === "block") {
-        answer.style.display = "none";
-        icon.classList.remove("fa-chevron-up");
-        icon.classList.add("fa-chevron-down");
+      if (ans.style.display === "block") {
+        ans.style.display = "none";
+        icon.classList.replace("fa-chevron-up", "fa-chevron-down");
       } else {
-        answer.style.display = "block";
-        icon.classList.remove("fa-chevron-down");
-        icon.classList.add("fa-chevron-up");
+        ans.style.display = "block";
+        icon.classList.replace("fa-chevron-down", "fa-chevron-up");
       }
     });
   });
+  document.querySelectorAll(".faq-answer").forEach((a) => (a.style.display = "none"));
 
-  // Hide all FAQ answers initially
-  document.querySelectorAll(".faq-answer").forEach((answer) => {
-    answer.style.display = "none";
-  });
+  // ——— Formulario de inscripción
+  const form = document.getElementById("inscripcion-form");
+  if (!form) return;
 
-  // Validación básica del formulario (si existe en la página)
-  const inscripcionForm = document.getElementById("inscripcion-form");
-  if (inscripcionForm) {
-    inscripcionForm.addEventListener("submit", (e) => {
-      const telefono = document.getElementById("telefono").value;
-      const telefonoRegex = /^[0-9]{9,15}$/;
+  // Generar un ID único para idempotencia
+  const submissionId =
+    crypto.randomUUID?.() ||
+    (Date.now().toString(36) + Math.random().toString(36).slice(2));
+  const hid = document.createElement("input");
+  hid.type = "hidden";
+  hid.name = "submissionId";
+  hid.value = submissionId;
+  form.appendChild(hid);
 
-      if (!telefonoRegex.test(telefono)) {
-        e.preventDefault();
-        const formMessage = document.getElementById("form-message");
-        formMessage.innerHTML =
-          '<div class="form-message error">Por favor, introduce un número de teléfono válido.</div>';
-        return false;
+  const btn = form.querySelector(".form-submit");
+  const msgEl = document.getElementById("form-message");
+  const telRe = /^[0-9]{9,15}$/;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Validación teléfono
+    const tel = form.telefono.value.trim();
+    if (!telRe.test(tel)) {
+      msgEl.innerHTML =
+        '<div class="form-message error">Número de teléfono inválido.</div>';
+      return;
+    }
+
+    // Bloquear botón
+    btn.disabled = true;
+    btn.textContent = "Enviando…";
+    msgEl.innerHTML = "";
+
+    // Enviar datos
+    const data = Object.fromEntries(new FormData(form));
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        msgEl.innerHTML =
+          '<div class="form-message success">¡Envío exitoso!</div>';
+        form.reset();
+      } else {
+        const { error } = await res.json().catch(() => ({}));
+        msgEl.innerHTML = `<div class="form-message error">${
+          error || "Ocurrió un error."
+        }</div>`;
       }
-
-      return true;
-    });
-  }
+    } catch {
+      msgEl.innerHTML =
+        '<div class="form-message error">Error de red. Intenta de nuevo.</div>';
+    } finally {
+      // Reactivar botón
+      btn.disabled = false;
+      btn.textContent = "Enviar inscripción";
+    }
+  });
 });
